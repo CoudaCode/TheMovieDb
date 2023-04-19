@@ -5,28 +5,34 @@
  const searchUrl = `${BASE_URL}/search/movie?${ApiKey}`
 
  content = document.querySelector('.content')
+ container = document.querySelector('.container')
 
  Divsearch =document.getElementById('form')
  search = document.getElementById('search')
- 
+    let  movies = []
  const ImgUrl = "https://image.tmdb.org/t/p/w500"
  
  recupApi(API_URL)
 
 function recupApi(Url) {
     
-     fetch(Url)
-     .then(response => response.json())
-     .then((data)=> {
-        console.log(data)
-        AfficheIme(data.results)
-     })
- }
+    for (let i = 1; i <=5; i++) {
+        fetch(`${Url}&page=${i}`)
+        .then(response => response.json())
+        .then((data)=> {
+            console.log(data.results)
+            movies.push(data.results)
+            AfficheIme(data.results)
+            console.log(movies);
+        })
+
+    }
+}
 
 function AfficheIme(imge) {
          imge.forEach(ele => {
 
-                 let {title, poster_path, vote_average} = ele
+                let {title, poster_path, vote_average} = ele
                 
                 let mov = `<div class="content-item">
                 <div class="movieImg">
@@ -63,3 +69,23 @@ Divsearch.addEventListener('submit', function(e){
         recupApi(API_URL)    
     }
 })
+
+
+
+content.addEventListener('scroll', function(e){
+    // console.log(document.documentElement)
+     console.log(e.currentTarget.scrollTop)
+     let scrollTop = e.currentTarget.scrollTop;
+     let scrollHeight = e.currentTarget.scrollHeight;
+     let clientHeight = e.currentTarget.clientHeight;
+     let clientWidth = e.currentTarget.clientWidth;
+     console.log('result',e.currentTarget.scrollTop + e.currentTarget.clientHeight)
+     console.log('scrollHeight :',e.currentTarget.scrollHeight,'scrollTop :',e.currentTarget.scrollTop,'ClientHeight', e.currentTarget.clientHeight,'ClientWidth', e.currentTarget.clientWidth)
+    
+    // if(e.currentTarget.clientHeight + e.currentTarget.scrollTop >= e.currentTarget.clientHeight ) {
+    //   count = count == tabElement.length -1 ? 0 : count+1
+    //   console.log(count)
+    //   container.textContent += tabElement[count]
+    // }
+    console.log(e);
+  })

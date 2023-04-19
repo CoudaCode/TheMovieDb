@@ -11,12 +11,12 @@ body{
 
 .container{
     width: 100vw;
-    height: auto;
-    max-width: 1400px;
+    height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
+
 
 }
 .container h1{
@@ -39,10 +39,11 @@ body{
 .content{
     max-width: 1300px;
     width: 80%;
-    height: auto;
+    height: 80%;
     display: grid;
     justify-content: center;
     align-items: center;
+    overflow: scroll;
     gap:25px;
     grid-template-columns: repeat(auto-fill, 280px);
 
