@@ -1,0 +1,96 @@
+*, *::after, *::before{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: "Montserrat";
+    background: linear-gradient(#2D2727, #413543);
+}
+
+.container{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
+}
+.container h1{
+    text-align: center;
+    color: white;
+    margin: 30px auto;
+}
+.search{
+    width: auto;
+    height: auto;
+    margin: 10px auto;
+}
+#search{
+    width: 200px;
+    height: 30px;
+    border: 1px solid #F1F1F1;
+    background-color: transparent;
+    color: white ;
+}
+.content{
+    max-width: 1300px;
+    width: 80%;
+    height: 80%;
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    overflow: scroll;
+    gap:25px;
+    grid-template-columns: repeat(auto-fill, 280px);
+
+}
+.content-item{
+    width: 280px;
+    height: 350px;
+    background-color: #293462;
+    color: white;
+}
+
+.movieImg{
+    height: 85%;
+    width: 100%;
+    border-top-right-radius:1rem;
+    border-top-left-radius:1rem;
+}
+.movieTile{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    width: 100%;
+    
+    margin: 10px 5px 10px;
+    height: 10%;
+} 
+ .movieTile p{
+    font-size: 16px;
+    word-wrap: break-word;
+    width: 60%;
+    height: auto;
+
+}
+.movieTile span{
+    width: 20%;
+    height: auto;
+    font-weight: bold;
+    background: rgba(66, 63, 63, 0.589);
+    text-align: center  ;
+    padding: 0.3rem ;
+    color: white;
+}
+ .movieTile span.green{
+    color: lime;
+}
+.movieTile span.orange{
+    color: orange;
+}
+.movieTile span.red{
+    color: red;
+} 
